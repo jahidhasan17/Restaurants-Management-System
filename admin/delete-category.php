@@ -11,6 +11,7 @@
 			$path = "../images/category/".$image_name;
 			$remove = unlink($path);
 
+
 			if($remove == false){
 				$_SESSION['remove'] = "<div class = 'error'> Failed to Remove Category Image. ";
 				header('location:'.SITEURL.'admin/manage-category.php');
