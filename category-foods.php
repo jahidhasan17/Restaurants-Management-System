@@ -74,7 +74,7 @@
                             </p>
                             <br>
 
-                            <a href="order.php" class="btn btn-primary">Order Now</a>
+                            <a href="<?php echo SITEURL; ?>order.php?food_id=<?php echo $id;?>" class="btn btn-primary">Order Now</a>
                         </div>
             </div>
 
@@ -89,7 +89,6 @@
                 <div class="food-menu-img">
                     <img src="images/menu-pizza.jpg" alt="Chicke Hawain Pizza" class="img-responsive img-curve">
                 </div>
-
                 <div class="food-menu-desc">
                     <h4>Food Title</h4>
                     <p class="food-price">$2.3</p>
@@ -97,7 +96,6 @@
                         Made with Italian Sauce, Chicken, and organice vegetables.
                     </p>
                     <br>
-
                     <a href="#" class="btn btn-primary">Order Now</a>
                 </div>
             </div> -->
