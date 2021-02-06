@@ -1,7 +1,6 @@
 <?php
 
-include('../config/constants.php');
-include('partials/login-check.php');
+include('config/constants.php');
 
 ?>
 
@@ -12,78 +11,63 @@ include('partials/login-check.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>This is my web Site</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-	<link rel="stylesheet" href="../css/adminstyle.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 	
-	<div class="add-admin-bg">
-		
-		<header>
-			<nav class="navbar navbar-expand-md">
-			  <div class="container-fluid">
-			    <a class="navbar-brand" href="#">
-			    	<img src="../images/logo.jpg" class="logo-image">
-			    </a>
-			    
-			    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-			      <ul class="navbar-nav m-auto">
-			        <li class="nav-item active">
-			          <a class="nav-link text-center" href="index.php">Home</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link text-center" href="manage-admin.php">Admin</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link text-center" href="manage-category.php">Category</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link text-center" href="manage-food.php">Food</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link text-center" href="manage-order.php">Order</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link text-center" href="#">Reservation</a>
-			        </li>
-			        <li class="nav-item">
-			          <a class="nav-link text-center" href="logout.php">Logout</a>
-			        </li>
-			      </ul>
-			    </div>
-			  </div>
-			</nav> 
-			
-		</header>
+	<div class="add-admin-bg1">
 
 
 		<div class="container">
-			
-			<h1 class="heading_text">Add Admin</h1>
-				<br><br>
+
+		
 				<div class="container-fluid">
 					<div class="row justify-content-center">
 						<div class="col-lg-6">
 
 							<form action="" method="POST" class="form-container">
 
-							  <div class="form-group">
-							    <label >Full Name</label>
-							    <input type="text" class="form-control" name="full_name" placeholder="Enter Your Name..">
-							  </div>
+								<h1 class="heading_text">Register</h1>
+								<br>
 
 							  <div class="form-group">
-							    <label >User Name</label>
+							    <label>Full Name</label>
+							    <input type="text" class="form-control" name="full_name" placeholder="Enter Your User Name..">
+							  </div>
+
+							  <br>
+							  <div class="form-group">
+							    <label>Contact Number</label>
+							    <input type="tel" class="form-control" name="contact" placeholder="Enter Your Contact Number..">
+							  </div>
+
+							  <br>
+							  <div class="form-group">
+							    <label>Location</label>
+							    <input type="text" class="form-control" name="location" placeholder="Enter Your Location..">
+							  </div>
+
+							  <br>
+							  <div class="form-group">
+							    <label>Email</label>
+							    <input type="email" class="form-control" name="email" placeholder="Enter Your Email..">
+							  </div>
+
+							  <br>
+							  <div class="form-group">
+							    <label>User Name</label>
 							    <input type="text" class="form-control" name="username" placeholder="Enter Your User Name..">
 							  </div>
 
+							  <br>
 							  <div class="form-group">
 							    <label >Password</label>
 							    <input type="password" class="form-control" name="password" placeholder="Enter Your Password..">
 							  </div>
 
 							  <br>
-							  <input type="submit" name="submit" value="Add Admin" class="btn-primary btn-lg btn-block" style="width: 100%">
+							  <input type="submit" name="submit" value="Login" class="btn-primary btn-lg btn-block" style="width: 100%">
 
 							</form>
 						</div>
@@ -112,14 +96,20 @@ include('partials/login-check.php');
 <?php
 
 	if(isset($_POST['submit'])){
+
 		$full_name = $_POST['full_name'];
+		$contact = $_POST['contact'];
+		$location = $_POST['location'];
+		$email = $_POST['email'];
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
 
-		$sql = " INSERT INTO tbl_admin SET
-
+		$sql = " INSERT INTO tbl_customer SET
 			full_name = '$full_name',
+			contact = '$contact',
+			location = '$location',
+			email = '$email',
 			username = '$username',
 			password = '$password'
 		 ";
@@ -127,9 +117,10 @@ include('partials/login-check.php');
 		 $res = mysqli_query($conn,$sql) or die(mysqli_error());
 
 		 if($res == true){
-		 	$_SESSION['add'] = "Admin Added Sucessfully";
-			header("location:".SITEURL.'admin/manage-admin.php');
+		 	$_SESSION['customer_add'] = "Register Sucessfully";
+			header("location:".SITEURL.'login.php');
 		 }
+
 	}
 
 ?>

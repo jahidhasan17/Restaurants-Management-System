@@ -1,6 +1,6 @@
 <?php
 
-include('../config/constants.php');
+include('config/constants.php');
 
 ?>
 
@@ -11,48 +11,40 @@ include('../config/constants.php');
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>This is my web Site</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-	<link rel="stylesheet" href="../css/adminstyle.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 	
-	<div class="add-admin-bg">
+	<div class="add-admin-bg1">
 
 
 		<div class="container">
 
-				<h1 class="heading_text">Login</h1>
-				<br><br>
-
 
 				<?php
 
-				if(isset($_SESSION['login'])){
-					?>
-					<h6 class="heading_text"><?php echo $_SESSION['login']; ?></h6>
-					<?php
-					unset($_SESSION['login']);
-				}
-
-				if(isset($_SESSION['no-login-message'])){
-					?>
-					<h6 class="heading_text"><?php echo $_SESSION['no-login-message']; ?></h6>
-					<?php
-					unset($_SESSION['no-login-message']);
-				}
+					if(isset($_SESSION['login'])){
+						echo $_SESSION['login'];
+						unset($_SESSION['login']);
+					}
 
 				?>
+				<br>
 
 		
 				<div class="container-fluid">
 					<div class="row justify-content-center">
-						<div class="col-lg-5">
+						<div class="col-lg-6">
 
 							<form action="" method="POST" class="form-container">
 
+								<h3 class="heading_text">Login</h3>
+								<br>
+
 							  <div class="form-group">
-							    <label>User Name</label>
-							    <input type="text" class="form-control" name="username" placeholder="Enter Your User Name..">
+							    <label>Email</label>
+							    <input type="email" class="form-control" name="email" placeholder="Enter Your Email..">
 							  </div>
 
 							  <br>
@@ -64,13 +56,19 @@ include('../config/constants.php');
 							  <br>
 							  <input type="submit" name="submit" value="Login" class="btn-primary btn-lg btn-block" style="width: 100%">
 
+							  <br><br><br>
+							  <p class="text-center">Don’t have an account?
+							  	<a href="register.php">sign up now</a>
+							  </p>
+
 							</form>
 						</div>
 					</div>
-
+				</div>
+			</div>
 		</div>
 
-	</div>
+	<div>
 
 		<footer>
 
@@ -92,24 +90,28 @@ include('../config/constants.php');
 
 	if(isset($_POST['submit'])){
 
-		$username = $_POST['username'];
+
+		$email = $_POST['email'];
 		$password = $_POST['password'];
 
 
-		$sql = "SELECT * FROM tbl_admin WHERE username = '$username' AND password = '$password' ";
+		$sql = "SELECT * FROM tbl_customer WHERE email = '$email' AND password = '$password' ";
 		$res = mysqli_query($conn,$sql);
 
 		$cnt = mysqli_num_rows($res);
 
 		if($cnt == 1){
+			$row = mysqli_fetch_assoc($res);
 			$_SESSION['login'] = "<div class = 'success'> Login Successful.</div>";
 
-			$_SESSION['user'] = $username;
+			$_SESSION['username'] = $row['username'];
+			$_SESSION['user_id'] = $row['id'];
 
-			header('location:'.SITEURL.'admin/');
+
+			header('location:'.SITEURL.'index.php');
 		}else{
 			$_SESSION['login'] = "<div class = 'error text-center'> Username or Password did not match</div>";
-			header('location:'.SITEURL.'admin/login.php');
+			header('location:'.SITEURL.'login.php');
 		}
 
 	}

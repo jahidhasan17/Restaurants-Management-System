@@ -1,117 +1,96 @@
-<?php include('partials/menu.php'); ?>
-
-	<!--main section start-->
-	<div class="main-content">
-		<div class="wrapper">
-			<h1>Food</h1>
+<?php include("partials/menu.php"); ?>
 
 
-			<br><br>
+	<div class="container" style="width: 90%">
 
-			<a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn-primary">Add food</a>
+		<h1 class="heading_text">Manage Category</h1>
+		<br><br>
 
-			<br /><br /><br />
+		<?php
 
-			<?php
+			if(isset($_SESSION['update'])){
+				echo $_SESSION['update'];
+				unset($_SESSION['update']);
+			}
 
-				if(isset($_SESSION['add'])){
-					echo $_SESSION['add'];
-					unset($_SESSION['add']);
-				}
-				if(isset($_SESSION['delete'])){
-					echo $_SESSION['delete'];
-					unset($_SESSION['delete']);
-				}
-				if(isset($_SESSION['upload'])){
-					echo $_SESSION['upload'];
-					unset($_SESSION['upload']);
-				}
-				if(isset($_SESSION['un'])){
-					echo $_SESSION['un'];
-					unset($_SESSION['un']);
-				}
-				if(isset($_SESSION['failed-remove'])){
-					echo $_SESSION['failed-remove'];
-					unset($_SESSION['failed-remove']);
-				}
-				if(isset($_SESSION['update'])){
-					echo $_SESSION['update'];
-					unset($_SESSION['update']);
-				}
+		?>
+		<br>
+		<a href="add-food.php" class="btn btn-primary btn-lg">Add Food</a>
 
-			?>
+		<br><br><br>
+		
+		<table class="table table-secondary table-striped table-bordered table-hover">
+		  <thead>
+		    <tr>
+		      <th width="10%">#</th>
+		      <th width="15%">Title</th>
+		      <th width="10%">Price</th>
+		      <th width="25%">Image</th>
+		      <th width="10%">Active</th>
+		      <th width="30%">Action</th>
+		    </tr>
+		  </thead>
+		  <tbody>
 
-			<table class="tbl-full">
-				<tr>
-					<th>S.N</th>
-					<th>Title</th>
-					<th>Price</th>
-					<th>Image</th>
-					<th>Feature</th>
-					<th>Active</th>
-					<th>Action</th>
-				</tr>
+		  	<?php
 
-				<?php
-
-					$sql = " SELECT * FROM tbl_food ";
+		  		$sql = "select * from tbl_food";
 					$res = mysqli_query($conn,$sql);
 
-					$cnt = mysqli_num_rows($res);
+					if($res == true){
+						$row_cnt = mysqli_num_rows($res);
 
-					if($cnt > 0){
-						$sl = 1;
-						while($row = mysqli_fetch_assoc($res)){
-							$id = $row['id'];
-							$title = $row['title'];
-							$price = $row['price'];
-							$image_name = $row['image_name'];
-							$featured = $row['feature'];
-							$active = $row['active'];
-							?>
+						if($row_cnt > 0){
+							$sl = 1;
+							while($row = mysqli_fetch_assoc($res)){
+								?>
 
-								<tr>
-								<td><?php echo $sl++; ?></td>
-								<td><?php echo $title; ?></td>
-								<td><?php echo $price; ?></td>
-								<td>
-									<?php 
-
-										if($image_name == ""){
-											echo "<div class = 'error'>Image Not Added</div>";
-										}else{
-											?>
-											<img src="<?php echo SITEURL;?>images/food/<?php echo $image_name;?>" width = "100px">
+									<tr>
+							    	<td><?php echo $sl++; ?></td>
+							    	<td><?php echo $row['title']; ?></td>
+							    	<td>$<?php echo $row['price']; ?></td>
+							    	<td>
+								
 											<?php
-										}
 
-									?>
-								</td>
-								<td><?php echo $featured; ?></td>
-								<td><?php echo $active; ?></td>
-								<td>
-									<a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>
-									<a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id;?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
-								</td>
-							</tr>
+												if($row['image_name'] != ""){
+													?>
 
-							<?php
+														<img src="<?php echo SITEURL; ?>images/food/<?php echo $row['image_name']; ?>" style = "width: 150px">
+
+													<?php
+												}else{
+													echo "<div class = 'error'> Image Not Added </div>";
+												}
+
+											?>
+										
+										</td>
+
+							    	<td><?php echo $row['active'] ?></td>
+							    	<td>
+							    		<a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $row['id'];?>" class="btn-primary admin_btn">Update Category</a>
+											<a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $row['id'];?>" class="btn-danger admin_btn">Delete Category</a>
+							    	</td>
+							    </tr>
+
+								<?php
+							}
+
+						}else{
+							
 						}
-
 					}else{
-						echo "<tr><td colspan = '7' class = 'error'> Food not Added Yet.</td></tr>";
-						//echo "<tr> <td colspan='7' class='error'> Food not Added Yet. </td> </tr>";
+
 					}
 
-				?>
+		  	?>
 
-				
-			</table>
+		  </tbody>
+		</table>		
 
 
-		</div>
+
 	</div>
-	<!--main section end-->
 
-
-<?php include('partials/footer.php'); ?>
+<?php include("partials/footer.php"); ?>

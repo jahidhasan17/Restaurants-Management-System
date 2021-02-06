@@ -3,27 +3,28 @@
 
 	<div class="container">
 
-		<h1 class="heading_text">Manage Order</h1>
+		<h1 class="heading_text">Manage Reservation</h1>
 		<br><br>
 		
 		<table class="table table-secondary table-striped table-bordered table-hover">
 		  <thead>
 		    <tr>
 		      <th width="5%">#</th>
-		      <th width="10%">Food Details</th>
-		      <th width="15%">Order Date</th>
-		      <th width="10%">Status</th>
-		      <th width="15%">Customer Name</th>
-		      <th width="10%">Contact</th>
-		      <th width="15%">Email</th>
-		      <th width="20%">Address</th>
+		      <th width="20%">Email</th>
+		      <th width="15%">Phone</th>
+		      <th width="10%">Date</th>
+		      <th width="10%">Time</th>
+		      <th width="10%">Guest No</th>
+		      <th width="20%">Suggesions</th>
+		      <th width="10">Status</th>
+		      <th width="10%">Action</th>
 		    </tr>
 		  </thead>
 		  <tbody>
 
 		  	<?php
 
-		  		$sql = "select * from tbl_order";
+		  		$sql = "select * from reservation";
 					$res = mysqli_query($conn,$sql);
 
 					if($res == true){
@@ -45,15 +46,16 @@
 
 									<tr>
 							    	<td><?php echo $sl++; ?></td>
-							    	<td>
-							    		<a href="food-details.php?id=<?php echo $row['id']; ?>" class="btn-primary admin_btn">Food Details</a>
-							    	</td>
-							    	<td><?php echo $row['order_date']; ?></td>
-							    	<td><?php echo $row['order_status']; ?></td>
-							    	<td><?php echo $row2['full_name']; ?></td>
-							    	<td><?php echo $row2['contact']; ?></td>
 							    	<td><?php echo $row2['email']; ?></td>
-							    	<td><?php echo $row2['location']; ?></td>
+							    	<td><?php echo $row2['contact']; ?></td>
+							    	<td><?php echo $row['re_date']; ?></td>
+							    	<td><?php echo $row['re_time']; ?></td>
+							    	<td><?php echo $row['guest']; ?></td>
+							    	<td><?php echo $row['suggestions']; ?></td>
+							    	<td><?php echo $row['status']; ?></td>
+							    	<td>
+							    		<a href="#" class="btn-primary admin_btn">Update</a>
+							    	</td>
 							    </tr>
 
 								<?php

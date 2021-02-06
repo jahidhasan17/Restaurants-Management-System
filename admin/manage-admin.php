@@ -1,16 +1,17 @@
-<?php include('partials/menu.php'); ?>
+<?php include("partials/menu.php"); ?>
 
-	<!--main section start-->
-	<div class="main-content">
-		<div class="wrapper">
-			<h1>Manage Admin</h1>
 
-			<br><br>
+	<div class="container" style="width: 90%">
 
-			<?php
+		<h1 class="heading_text">Manage Admin</h1>
+		<br><br>
+
+		<?php
 
 			if(isset($_SESSION['add'])){
-				echo $_SESSION['add'];
+				?>
+					<p style="color: green"><?php echo $_SESSION['add']; ?></p>
+				<?php
 				unset($_SESSION['add']);
 			}
 
@@ -18,12 +19,6 @@
 				echo $_SESSION['delete'];
 				unset($_SESSION['delete']);
 			}
-
-			if(isset($_SESSION['update'])){
-				echo $_SESSION['update'];
-				unset($_SESSION['update']);
-			}
-
 			if(isset($_SESSION['user_not_found'])){
 				echo $_SESSION['user_not_found'];
 				unset($_SESSION['user_not_found']);
@@ -33,76 +28,68 @@
 				echo $_SESSION['pwd_not_match'];
 				unset($_SESSION['pwd_not_match']);
 			}
-
-			if(isset($_SESSION['cng_pwd'])){
-				echo $_SESSION['cng_pwd'];
-				unset($_SESSION['cng_pwd']);
+			if(isset($_SESSION['pwd_not_match'])){
+				echo $_SESSION['pwd_not_match'];
+				unset($_SESSION['pwd_not_match']);
 			}
 
-			if(isset($_SESSION['cng_pwd_not'])){
-				echo $_SESSION['cng_pwd_not'];
-				unset($_SESSION['cng_pwd_not']);
-			}
+		?>
 
-			?>
+		<a href="add-admin.php" class="btn btn-primary btn-lg">Add Admin</a>
 
-			<br><br>
+		<br><br><br>
+		
+		<table class="table table-secondary table-striped table-bordered table-hover">
+		  <thead>
+		    <tr>
+		      <th width="10%">#</th>
+		      <th width="20%">Full Name</th>
+		      <th width="20%">User Name</th>
+		      <th width="50%">Action</th>
+		    </tr>
+		  </thead>
+		  <tbody>
 
-			<a href="add-admin.php" class="btn-primary">Add Admin</a>
+		  	<?php
 
-			<br /><br /><br />
+		  		$sql = "select * from tbl_admin";
+					$res = mysqli_query($conn,$sql);
 
-			<table class="tbl-full">
-				<tr>
-					<th>S.N</th>
-					<th>Full Name</th>
-					<th>Username</th>
-					<th>Actions</th>
-				</tr>
+					if($res == true){
+						$row_cnt = mysqli_num_rows($res);
 
-				<?php
+						if($row_cnt > 0){
+							$sl = 1;
+							while($row = mysqli_fetch_assoc($res)){
+								?>
 
-				$sql = "select * from tbl_admin";
-				$res = mysqli_query($conn,$sql);
+									<tr>
+							    	<td><?php echo $sl++; ?></td>
+							    	<td><?php echo $row['full_name'] ?></td>
+							    	<td><?php echo $row['username'] ?></td>
+							    	<td>
+							    		<a href="update-admin.php?id=<?php echo $row['id']; ?>" class="btn-primary admin_btn">Update Admin</a>
+							    		<a href="delete-admin.php?id=<?php echo $row['id']; ?>" class="btn-danger admin_btn">Delete Admin</a>
+							    	</td>
+							    </tr>
 
-				if($res == TRUE){
-					$row_cnt = mysqli_num_rows($res);
-					
-					if($row_cnt > 0){
-						$cnt = 1;
-						while($rows = mysqli_fetch_assoc($res)){
-							$id = $rows['id'];
-							$full_name = $rows['full_name'];
-							$username = $rows['username'];
+								<?php
+							}
 
-							?>
-
-							<tr>
-							<td><?php echo $cnt++ ?></td>
-							<td><?php echo $full_name ?></td>
-							<td><?php echo $username ?></td>
-							<td>
-								<a href="<?php echo SITEURL; ?>admin/update-password.php?id=<?php echo $id; ?>" class="btn-primary">Change Password</a>
-								<a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>" class="btn-secondary">Update Admin</a>
-								<a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="btn-danger">Delete Admin</a>
-								<!-- <a href="delete-admin.php" class="btn-danger">Delete Admin</a> -->
-							</td>
-						</tr>
-
-							<?php
+						}else{
+							
 						}
-
 					}else{
 
 					}
-				}
 
-				?>
-			</table>
+		  	?>
 
-		</div>
+		  </tbody>
+		</table>		
+
+
+
 	</div>
-	<!--main section end-->
 
-
-<?php include('partials/footer.php'); ?>
+<?php include("partials/footer.php"); ?>
