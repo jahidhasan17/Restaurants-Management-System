@@ -54,7 +54,7 @@
 							    	<td><?php echo $row['suggestions']; ?></td>
 							    	<td><?php echo $row['status']; ?></td>
 							    	<td>
-							    		<a href="#" class="btn-primary admin_btn">Update</a>
+							    		<a href="<?php echo SITEURL;?>admin/update-reservation.php?id=<?php echo $row['id'];?>" class="btn-primary admin_btn">Update</a>
 							    	</td>
 							    </tr>
 

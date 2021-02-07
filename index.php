@@ -45,13 +45,14 @@
 			          <a class="nav-link text-center" href="#">Contact Us</a>
 			        </li>
 			        <li class="nav-item">
-			          <a class="nav-link text-center" href="#">About Us</a>
+			          <a class="nav-link text-center" href="about.php">About Us</a>
 			        </li>
 			        <?php
 			        	if(isset($_SESSION['username'])){
+			        		$user_id = $_SESSION['user_id'];
 			        		?>
 			        			<li class="nav-item">
-						          <a class="nav-link text-center" href="profile.php"><?php echo $_SESSION['username']; ?></a>
+						          <a class="nav-link text-center" href="<?php echo SITEURL;?>profile.php?id=<?php echo $user_id;?>"><?php echo $_SESSION['username']; ?></a>
 						        </li>
 			        		<?php
 			        	}

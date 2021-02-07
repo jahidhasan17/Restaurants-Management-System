@@ -37,6 +37,12 @@ body{
   padding: 2%;
   border-radius: 9px;
 }
+.heading_text-1{
+	text-align: center;
+  color: #66afe9;
+  padding: 2%;
+  border-radius: 9px;
+}
 
 h1,h2,h3,h4,h5,h6{
 	
@@ -94,6 +100,12 @@ table, th, tr{
   margin: 0 auto;
   padding: 1%;
   /*border: 1px solid red;*/
+}
+
+.orderContainer{
+	width: 80%;
+  margin: 0 auto;
+  padding: 10%;
 }
 
 

@@ -47,7 +47,7 @@ include('config/constants.php');
 			          <a class="nav-link text-center" href="#">Contact Us</a>
 			        </li>
 			        <li class="nav-item">
-			          <a class="nav-link text-center" href="#">About Us</a>
+			          <a class="nav-link text-center" href="about.php">About Us</a>
 			        </li>
 			        <?php
 			        	if(isset($_SESSION['username'])){
@@ -80,100 +80,14 @@ include('config/constants.php');
 			</nav> 
 			
 		</header>
-
-		<section class="container">
-			
-			<div class="text-red text-center">
-				<h1>Menu Card</h1>
-			</div>
-
-		</section>
-
-		<section class="container">
-			<div>
-
-				<?php
-
-					$sql = "SELECT * from tbl_category WHERE active = 'Yes'";
-					$res = mysqli_query($conn,$sql);
-
-					if($res == true){
-						$row_cnt = mysqli_num_rows($res);
-
-						if($row_cnt > 0){
-
-							while($row = mysqli_fetch_assoc($res)){
-								$category_title = $row['title'];
-								$category_id = $row['id'];
-								?>
-									<div>
-										<h3><?php echo $category_title; ?></h3>
-									</div>
-								<?php
-
-								$sql2 = "SELECT * from tbl_food WHERE category_id = '$category_id' AND active = 'Yes' ";
-								$res2 = mysqli_query($conn,$sql2);
-
-								if($res2 == true){
-									$row_cnt2 = mysqli_num_rows($res2);
-									if($row_cnt2 > 0){
-										?>
-										<div class="row text-center mb-3">
-										<?php
-										while($row2 = mysqli_fetch_assoc($res2)){
-											$food_title = $row2['title'];
-											$food_price = $row2['price'];
-											$image_name = $row2['image_name'];
-
-											?>
-
-													<div class="col-lg-3">
-														<div class="card mb-5 m-lg-0">
-															<?php
-
-																if($image_name != ""){
-																	?>
-																	<img src="<?php echo SITEURL; ?>images/food/<?php echo $image_name; ?>" style = "width: 100%">
-																	<?php
-																}else{
-																	echo "Image Not Added";
-																}
-
-															?>
-															<div class="card-body">
-																<h5 class="card-title"><?php echo $food_title; ?></h4>
-																<p class="food-price"><?php echo $food_price; ?></p>
-															</div>	
-														</div>
-													</div>
-
-											<?php
-										}
-
-									}else{
-										?>
-										<div>
-											<h3>Food Not Found</h3>
-										</div>
-										<?php
-									}
-								}
-								?> </div><br><br> <?php
-							}
-
-						}else{
-							?>
-								<div>
-									<h3>No Category Found</h3>
-								</div>
-							<?php
-						}
-					}
-
-				?>
 				
 
-		</section>
+		<div class="container">
+			<h1>About Us</h1>
+			<p class="container-1">
+				An Indian food-lover’s dream, Mayura’s food is prepared for you using the finest seasonal ingredients in separate vegetarian and non-vegetarian kitchens by our specially trained chefs. Good food has the ability to delight your sense of taste and leave you happier. Our menu features a large range of vegetables, meats and delicious desserts from India’s rich culture including authentic south Indian cuisine that tastes like it came straight from Kerala.<br><br> Each menu item is specifically tailored with flair and attention to detail is characteristic of Mayura for every occasion, whether it be a large dinner party, family outing, intimate first date. Regardless of the occasion, you can always expect a great atmosphere with great food at the Mayura.
+			</p>
+		</div>
 
 		<footer>
 			

@@ -38,8 +38,15 @@ body{
   border-radius: 9px;
 }
 
+.heading_text-1{
+  text-align: center;
+  color: #17202A
+  padding: 2%;
+  border-radius: 9px;
+}
 
-h1,h2,h3,h4,h5,h6{
+
+h1,h2,h3,h4,h6{
 	text-align: center;
   color: #66afe9;
   background-color: #efefef;
@@ -98,6 +105,14 @@ table, th, tr{
   width: 80%;
   margin: 0 auto;
   padding: 1%;
+  text-align: center;
+}
+
+.container-1{
+  width: 50%;
+  margin: 0 auto;
+  padding: 1%;
+  font-size: large;
 }
 
 .box{

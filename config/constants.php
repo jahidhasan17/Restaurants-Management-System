@@ -2,7 +2,7 @@
 
 session_start();
 
-define('SITEURL', 'http://localhost/restaurant-1/');
+define('SITEURL', 'http://localhost/restaurant/');
 define('LOCALHOST', 'localhost');
 define('DB_USERNAME','root');
 define('DB_PASSWORD','');

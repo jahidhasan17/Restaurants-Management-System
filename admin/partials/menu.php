@@ -44,7 +44,7 @@ include('login-check.php');
 			          <a class="nav-link text-center" href="manage-order.php">Order</a>
 			        </li>
 			        <li class="nav-item">
-			          <a class="nav-link text-center" href="#">Reservation</a>
+			          <a class="nav-link text-center" href="manage-reservation.php">Reservation</a>
 			        </li>
 			        <li class="nav-item">
 			          <a class="nav-link text-center" href="logout.php">Logout</a>
