@@ -98,57 +98,57 @@
 
 					<a href="">
 						<div class="box">
-							<img src="images/img-1.jpg">
+							<img src="images/Menu/french-fries.jpg">
+							<div class="des">French Fries</div>
+						</div>
+					</a>
+
+					<a href="">
+						<div class="box">
+							<img src="images/Menu/breakfast.jpg">
+							<div class="des">Breakfast</div>
+						</div>
+					</a>
+
+					<a href="">
+						<div class="box">
+							<img src="images/Menu/burger.jpg">
 							<div class="des">Burger</div>
 						</div>
 					</a>
 
 					<a href="">
 						<div class="box">
-							<img src="images/img-2.jpg">
-							<div class="des">Burger</div>
+							<img src="images/Menu/pizza-1.jpg">
+							<div class="des">Pizza</div>
 						</div>
 					</a>
 
 					<a href="">
 						<div class="box">
-							<img src="images/img-3.jpg">
-							<div class="des">Burger</div>
+							<img src="images/Menu/chicken.jpg">
+							<div class="des">Chicken</div>
 						</div>
 					</a>
 
 					<a href="">
 						<div class="box">
-							<img src="images/img-4.jpg">
-							<div class="des">Burger</div>
+							<img src="images/Menu/jilebi.jpg">
+							<div class="des">Jilebi</div>
 						</div>
 					</a>
 
 					<a href="">
 						<div class="box">
-							<img src="images/img-3.jpg">
-							<div class="des">Burger</div>
+							<img src="images/Menu/singara.jpg">
+							<div class="des">Singara</div>
 						</div>
 					</a>
 
 					<a href="">
 						<div class="box">
-							<img src="images/img-4.jpg">
-							<div class="des">Burger</div>
-						</div>
-					</a>
-
-					<a href="">
-						<div class="box">
-							<img src="images/img-3.jpg">
-							<div class="des">Burger</div>
-						</div>
-					</a>
-
-					<a href="">
-						<div class="box">
-							<img src="images/img-4.jpg">
-							<div class="des">Burger</div>
+							<img src="images/Menu/samosa.jpg">
+							<div class="des">Samosa</div>
 						</div>
 					</a>
 					<div class="clearfix"></div>
@@ -162,27 +162,27 @@
 					</div>
 
 					<div class="box-3">
-						<img src="images/img-1.jpg">
+						<img src="images/burger.jpg">
 					</div>
 
 					<div class="box-3">
-						<img src="images/img-2.jpg">
+						<img src="images/jilebi.jpg">
 					</div>
 
 					<div class="box-3">
-						<img src="images/img-3.jpg">
+						<img src="images/pizza-1.jpg">
 					</div>
 
 					<div class="box-3">
-						<img src="images/img-4.jpg">
+						<img src="images/samosa.jpg">
 					</div>
 
 					<div class="box-3">
-						<img src="images/img-4.jpg">
+						<img src="images/french-fries.jpg">
 					</div>
 
 					<div class="box-3">
-						<img src="images/img-4.jpg">
+						<img src="images/chicken.jpg">
 					</div>
 
 					</div>
