@@ -1,0 +1,155 @@
+*{ 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.text-right{
+    text-align: right;
+}
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: left;
+}
+.text-white{
+    color: white;
+}
+.text-red{
+	color: red;
+}
+
+.logo-image{
+	width: 80%;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+body{
+
+}
+
+.heading_text{
+	text-align: center;
+  color: #66afe9;
+  background-color: #efefef;
+  padding: 2%;
+  border-radius: 9px;
+}
+.heading_text-1{
+	text-align: center;
+  color: #66afe9;
+  padding: 2%;
+  border-radius: 9px;
+}
+
+h1,h2,h3,h4,h5,h6{
+	
+}
+table th{
+  background-color: #efefef;
+}
+
+table, th, tr{
+  text-align: center;
+}
+
+.navbar{
+	padding: 1% 10%;
+	background-color: rgba(0,0,0,0.3);
+}
+
+.navber-brand img{
+	width: 60px;
+	height: auto;
+}
+
+.nav-link{
+	color: white;
+	margin: 10px;
+	border-radius: 5px;
+	transition: .4s;
+}
+
+.nav-link:hover{
+	background: #2980b9;
+	color: white;
+	transform: scale(1.1);
+}
+
+.banner-container h1{
+	font-size: 3.5rem;
+	padding: 10px 20px;
+}
+
+.banner-container{
+	height: 100vh;
+	color: white;
+}
+
+.c-1{
+  width: 80%;
+  margin: 0 auto;
+  padding: 1%;
+  /*border: 1px solid red;*/
+}
+
+.container{
+  width: 80%;
+  margin: 0 auto;
+  padding: 1%;
+  /*border: 1px solid red;*/
+}
+
+.orderContainer{
+	width: 80%;
+  margin: 0 auto;
+  padding: 10%;
+}
+
+
+
+img{
+  width: 100%;
+  border-radius: 4px;
+}
+
+.footer{
+	background-color: #EC7063;
+	border: 1px solid red;
+	margin: 0 auto;
+	padding: 1%;
+}
+
+.col-4{
+	width: 80%;
+	background-color: white;
+	margin:4%;
+	padding: 6%;
+	float: left;
+	border-radius: 7px;
+}
+
+/*manage admin*/
+.admin_btn{
+	padding: 2%;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 0px;
+	text-decoration: none;
+}
+
+/*form management */
+.form-container{
+	background: #fff;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 0px #000;
+}
+
+.add-admin-bg{
+	background: url('../images/add-admin.jpg') no-repeat;
+	width: 100%;
+	height: 100vh;
+	background-size: 100%;
+}
